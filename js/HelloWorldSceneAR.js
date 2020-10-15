@@ -7,6 +7,8 @@ import {
   Viro3DObject,
   ViroConstants,
   ViroAmbientLight,
+  ViroARPlaneSelector,
+  ViroText
 } from 'react-viro';
 
 export default class HelloWorldSceneAR extends Component {
@@ -27,33 +29,36 @@ export default class HelloWorldSceneAR extends Component {
     return (
       <ViroARScene onTrackingUpdated={this._onInitialized}>
         <ViroAmbientLight color="#FFFFFF" />
-        <Viro3DObject source={require('./res/car/scene1.obj')}
-                      resources={[
-                          require('./res/car/scene1.mtl'),
-                          require('./res/car/BRAKDISC.png'),
-                          require('./res/car/Back.png'),
-                          require('./res/car/Bottom.png'),
-                          require('./res/car/BRAKELIGHT.png'),
-                          require('./res/car/INTERIOR.png'),
-                          require('./res/car/MIRROR.png'),
-                          require('./res/car/MISC1.png'),
-                          require('./res/car/DRIVER.png'),
-                          require('./res/car/Front.png'),
-                          require('./res/car/LICENSE.png'),
-                          require('./res/car/Left.png'),
-                          require('./res/car/Right.png'),
-                          require('./res/car/Top.png'),
-                          require('./res/car/negx.jpg'),
-                          require('./res/car/negy.jpg'),
-                          require('./res/car/negz.jpg'),
-                          require('./res/car/posx.jpg'),
-                          require('./res/car/posy.jpg'),
-                          require('./res/car/posz.jpg')
-                      ]}
-                      position={[0.0, 0.0, 0.0]}
-                      scale={[0.1, 0.1, 0.1]}
-                      type="OBJ"
-        />
+        <ViroText text={this.state.text} scale={[.1, .1, .1]} height={1} width={4} position={[0, .5, -1]}/>
+          <ViroARPlaneSelector minHeight={.5} minWidth={.5} alignment={"Horizontal"}>
+            <Viro3DObject source={require('./res/car/scene1.obj')}
+                              resources={[
+                                  require('./res/car/scene1.mtl'),
+                                  require('./res/car/BRAKDISC.png'),
+                                  require('./res/car/Back.png'),
+                                  require('./res/car/Bottom.png'),
+                                  require('./res/car/BRAKELIGHT.png'),
+                                  require('./res/car/INTERIOR.png'),
+                                  require('./res/car/MIRROR.png'),
+                                  require('./res/car/MISC1.png'),
+                                  require('./res/car/DRIVER.png'),
+                                  require('./res/car/Front.png'),
+                                  require('./res/car/LICENSE.png'),
+                                  require('./res/car/Left.png'),
+                                  require('./res/car/Right.png'),
+                                  require('./res/car/Top.png'),
+                                  require('./res/car/negx.jpg'),
+                                  require('./res/car/negy.jpg'),
+                                  require('./res/car/negz.jpg'),
+                                  require('./res/car/posx.jpg'),
+                                  require('./res/car/posy.jpg'),
+                                  require('./res/car/posz.jpg')
+                              ]}
+                              position={[0.0, 0.0, 0.0]}
+                              scale={[1, 1, 1]}
+                              type="OBJ"
+            />
+          </ViroARPlaneSelector>
       </ViroARScene>
     );
   }
